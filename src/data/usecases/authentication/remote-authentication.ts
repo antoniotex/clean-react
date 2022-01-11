@@ -1,5 +1,7 @@
+import { InvalidCredencialsError } from './../../../domain/errors/invalid-credencials-error'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpPostClient } from '@/data/protocols/http/http-post-client'
+import { HttpStatusCode } from '@/data/protocols/http/http-response'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { AuthenticationParams } from '@/domain/usecases/authentication'
 
@@ -9,9 +11,15 @@ export class RemoteAuthentication {
     private readonly httpPostClient: HttpPostClient) {}
 
   async auth (params: AuthenticationParams): Promise<void> {
-    await this.httpPostClient.post({
+    const httpResponse = await this.httpPostClient.post({
       url: this.url,
       body: params
     })
+    switch (httpResponse.statusCode) {
+      case HttpStatusCode.unauthorized:
+        throw new InvalidCredencialsError()
+      default:
+        return Promise.resolve()
+    }
   }
 }
