@@ -24,7 +24,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-standard": "^5.0.0",
-    "faker": "^6.6.6",
+    "faker": "^4.1.0",
     "git-commit-msg-linter": "^3.3.3",
     "husky": "^7.0.4",
     "jest": "^27.4.7",
