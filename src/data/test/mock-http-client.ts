@@ -1,13 +1,19 @@
+import { HttpStatusCode } from './../protocols/http/http-response'
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { HttpPostClient, HttpPostParams } from '@/data/protocols/http/http-post-client'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { HttpResponse } from '@/data/protocols/http/http-response'
 
 export class HttpPostClientSpy implements HttpPostClient {
   url?: string
   body?: object
+  response: HttpResponse = {
+    statusCode: HttpStatusCode.noContent
+  }
 
-  async post (params: HttpPostParams): Promise<void> {
+  async post (params: HttpPostParams): Promise<HttpResponse> {
     this.url = params.url
     this.body = params.body
-    return Promise.resolve()
+    return Promise.resolve(this.response)
   }
 }
