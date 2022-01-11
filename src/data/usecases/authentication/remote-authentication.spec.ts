@@ -1,13 +1,11 @@
-import { mockAccountModel } from './../../../domain/test/mock-account'
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { HttpStatusCode } from '@/data/protocols/http/http-response'
-import { HttpPostClientSpy } from '@/data/test/mock-http-client'
-import { RemoteAuthentication } from '@/data/usecases/authentication/remote-authentication'
-import { InvalidCredencialsError } from '@/domain/errors/invalid-credencials-error'
-import { UnexpectedError } from '@/domain/errors/unexpected-error'
-import { AccountModel } from '@/domain/models/account-model'
-import { mockAuthentication } from '@/domain/test/mock-account'
-import { AuthenticationParams } from '@/domain/usecases/authentication'
+import { HttpStatusCode } from '@/data/protocols/http'
+import { HttpPostClientSpy } from '@/data/test'
+import { RemoteAuthentication } from './remote-authentication'
+import { UnexpectedError, InvalidCredencialsError } from '@/domain/errors'
+import { AccountModel } from '@/domain/models'
+import { mockAuthentication, mockAccountModel } from '@/domain/test'
+import { AuthenticationParams } from '@/domain/usecases'
 import faker from 'faker'
 
 type SutTypes = {
