@@ -12,11 +12,11 @@ module.exports = {
 
   // The test environment that will be used for testing
   // ==testEnvironment: "jest-environment-node",
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '.+\\.ts$': 'ts-jest'
+    '.+\\.(ts|tsx)$': 'ts-jest'
   },
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1'
