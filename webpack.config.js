@@ -35,9 +35,12 @@ module.exports = {
     }]
   },
   devServer: {
+    devMiddleware: {
+      writeToDisk: true
+    },
     // contentBase
     static : {
-      directory : path.join(__dirname, "public/")
+      directory: './public'
     },
     // hotOnly
     hot: "only",
