@@ -6,11 +6,11 @@ module.exports = {
   entry: './src/main/index.tsx',
   output: {
     path: path.join(__dirname, 'public/js'),
-    publicPath: '/public/js',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.scss'],
+    extensions: ['.ts', '.tsx', '.js', 'scss'],
     alias: {
       '@': path.join(__dirname, 'src')
     }
@@ -23,12 +23,12 @@ module.exports = {
     }, {
       test: /\.scss$/,
       use: [{
-        loader: 'style-loader',
+        loader: 'style-loader'
+      },{
+        loader: 'css-loader',
         options: {
           modules: true
         }
-      },{
-        loader: 'css-loader'
       },{
         loader: 'sass-loader'
       },]
