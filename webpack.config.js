@@ -20,8 +20,20 @@ module.exports = {
       test: /\.ts(x?)$/,
       loader: 'ts-loader',
       exclude: /node_modules/
+    }, {
+      test: /\.scss$/,
+      use: [{
+        loader: 'style-loader',
+        options: {
+          modules: true
+        }
+      },{
+        loader: 'css-loader'
+      },{
+        loader: 'sass-loader'
+      },]
     }]
-  }
+  },
   devServer: {
     // contentBase
     static : {
