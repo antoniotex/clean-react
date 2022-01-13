@@ -1,5 +1,5 @@
-import { Footer, FormStatus, Input, LoginHeader } from "@/presentation/components"
-import React from "react";
+import { Footer, FormStatus, Input, LoginHeader } from '@/presentation/components'
+import React from 'react'
 import Styles from './login-styles.scss'
 
 const Login: React.FC = () => {

@@ -12,4 +12,3 @@ const LoginHeader: React.FC = () => {
 }
 
 export default memo(LoginHeader)
-

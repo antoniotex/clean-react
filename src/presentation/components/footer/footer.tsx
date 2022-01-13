@@ -8,4 +8,3 @@ const Footer: React.FC = () => {
 }
 
 export default memo(Footer)
-

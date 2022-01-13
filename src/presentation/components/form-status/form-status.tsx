@@ -12,4 +12,3 @@ const FormStatus: React.FC = () => {
 }
 
 export default FormStatus
-
