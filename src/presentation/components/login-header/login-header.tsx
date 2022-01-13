@@ -1,8 +1,8 @@
 import React, { memo } from 'react'
-import Logo from '../logo/logo'
+import { Logo } from '../'
 import Styles from './login-header-styles.scss'
 
-const LoginHeader = () => {
+const LoginHeader: React.FC = () => {
   return (
     <header className={Styles.header}>
       <Logo />

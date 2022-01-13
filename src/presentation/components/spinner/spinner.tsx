@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import Styles from './spinner.styles.scss'
 
-type Props = React.HtmlHTMLAttributes<HTMLElement>
+type Props = React.HTMLAttributes<HTMLElement>
 
 const Spinner: React.FC<Props> = (props: Props) => {
   return (
