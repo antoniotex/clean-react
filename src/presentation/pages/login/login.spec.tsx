@@ -6,6 +6,8 @@ import Login from './login'
 import { AuthenticationSpy, ValidationSpy } from '@/presentation/test'
 import faker from 'faker'
 import { InvalidCredencialsError } from '@/domain/errors'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
 
 // Garantir que componentes Spinner e Erro não sejam renderizados no inicio
 // Garantir que Validation é chamada com email correto
@@ -20,11 +22,16 @@ type SutParams = {
   validationError: string
 }
 
+const history = createMemoryHistory()
 const makeSut = (params?: SutParams): SutTypes => {
   const validationStub = new ValidationSpy()
   const authenticationSpy = new AuthenticationSpy()
   validationStub.errorMessage = params?.validationError
-  const sut = render(<Login validation={validationStub} authentication={authenticationSpy} />)
+  const sut = render(
+    <Router history={history}>
+      <Login validation={validationStub} authentication={authenticationSpy} />
+    </Router>
+  )
   return {
     sut,
     authenticationSpy
@@ -155,5 +162,13 @@ describe('Login Component', () => {
     simulateValidSubmit(sut)
     await waitFor(() => sut.getByTestId('form'))
     expect(localStorage.setItem).toHaveBeenCalledWith('accessToken', authenticationSpy.account.accessToken)
+  })
+
+  test('Should go to signup page', () => {
+    const { sut } = makeSut()
+    const signup = sut.getByTestId('signup')
+    fireEvent.click(signup)
+    expect(history.length).toBe(2)
+    expect(history.location.pathname).toBe('/signup')
   })
 })
