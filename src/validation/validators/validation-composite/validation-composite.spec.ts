@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { FieldValidationSpy } from '../test'
+import { FieldValidationSpy } from '../../test'
 import { ValidationComposite } from './validation-composite'
 import faker from 'faker'
 
